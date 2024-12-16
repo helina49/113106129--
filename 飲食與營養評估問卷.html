@@ -1,0 +1,150 @@
+{
+  "resourceType": "Questionnaire",
+  "id": "dietary-nutrition-assessment",
+  "status": "active",
+  "title": "Dietary and Nutrition Assessment Questionnaire",
+  "publisher": "Healthcare Organization",
+  "date": "2024-12-14",
+  "subjectType": ["Patient"],
+  "item": [
+    {
+      "linkId": "1",
+      "text": "General Information",
+      "type": "group",
+      "item": [
+        {
+          "linkId": "1.1",
+          "text": "Patient's Name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "linkId": "1.2",
+          "text": "Date of Birth",
+          "type": "date",
+          "required": true
+        },
+        {
+          "linkId": "1.3",
+          "text": "Gender",
+          "type": "choice",
+          "required": true,
+          "answerOption": [
+            {"valueString": "Male"},
+            {"valueString": "Female"},
+            {"valueString": "Other"}
+          ]
+        }
+      ]
+    },
+    {
+      "linkId": "2",
+      "text": "Dietary Habits",
+      "type": "group",
+      "item": [
+        {
+          "linkId": "2.1",
+          "text": "How many meals do you eat per day?",
+          "type": "integer",
+          "required": true
+        },
+        {
+          "linkId": "2.2",
+          "text": "Do you consume any dietary supplements?",
+          "type": "choice",
+          "required": true,
+          "answerOption": [
+            {"valueString": "Yes"},
+            {"valueString": "No"}
+          ]
+        },
+        {
+          "linkId": "2.3",
+          "text": "If yes, please specify:",
+          "type": "string",
+          "enableWhen": [
+            {
+              "question": "2.2",
+              "operator": "=",
+              "answerString": "Yes"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "linkId": "3",
+      "text": "Food Preferences and Restrictions",
+      "type": "group",
+      "item": [
+        {
+          "linkId": "3.1",
+          "text": "Do you have any food allergies?",
+          "type": "choice",
+          "required": true,
+          "answerOption": [
+            {"valueString": "Yes"},
+            {"valueString": "No"}
+          ]
+        },
+        {
+          "linkId": "3.2",
+          "text": "If yes, please list your food allergies:",
+          "type": "string",
+          "enableWhen": [
+            {
+              "question": "3.1",
+              "operator": "=",
+              "answerString": "Yes"
+            }
+          ]
+        },
+        {
+          "linkId": "3.3",
+          "text": "Are you following any specific diet?",
+          "type": "choice",
+          "answerOption": [
+            {"valueString": "Vegetarian"},
+            {"valueString": "Vegan"},
+            {"valueString": "Keto"},
+            {"valueString": "Paleo"},
+            {"valueString": "Other"}
+          ]
+        },
+        {
+          "linkId": "3.4",
+          "text": "If other, please describe:",
+          "type": "string",
+          "enableWhen": [
+            {
+              "question": "3.3",
+              "operator": "=",
+              "answerString": "Other"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "linkId": "4",
+      "text": "Nutritional Goals",
+      "type": "group",
+      "item": [
+        {
+          "linkId": "4.1",
+          "text": "What are your primary nutritional goals?",
+          "type": "string"
+        },
+        {
+          "linkId": "4.2",
+          "text": "Are you working with a dietitian or nutritionist?",
+          "type": "choice",
+          "answerOption": [
+            {"valueString": "Yes"},
+            {"valueString": "No"}
+          ]
+        }
+      ]
+    }
+  ]
+}
